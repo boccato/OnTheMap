@@ -15,6 +15,7 @@
 		6C5288721BCB05D4008B3470 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5288711BCB05D4008B3470 /* OnTheMapTests.swift */; };
 		6C52887D1BCB05D4008B3470 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52887C1BCB05D4008B3470 /* OnTheMapUITests.swift */; };
 		6C52888F1BCB1ED2008B3470 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */; settings = {ASSET_TAGS = (); }; };
+		6C5288911BCB4662008B3470 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5288901BCB4662008B3470 /* UdacityClient.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6C52887C1BCB05D4008B3470 /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		6C52887E1BCB05D4008B3470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
+		6C5288901BCB4662008B3470 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				6C5288601BCB05D4008B3470 /* Main.storyboard */,
 				6C52888D1BCB1229008B3470 /* View */,
 				6C52888A1BCB11C5008B3470 /* ViewController */,
+				6C5288921BCB4667008B3470 /* Model */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -142,6 +145,22 @@
 				6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		6C5288921BCB4667008B3470 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C5288931BCB466F008B3470 /* Clients */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6C5288931BCB466F008B3470 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				6C5288901BCB4662008B3470 /* UdacityClient.swift */,
+			);
+			name = Clients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5288911BCB4662008B3470 /* UdacityClient.swift in Sources */,
 				6C52885F1BCB05D4008B3470 /* ViewController.swift in Sources */,
 				6C52888F1BCB1ED2008B3470 /* TextFieldWithPadding.swift in Sources */,
 				6C52885D1BCB05D4008B3470 /* AppDelegate.swift in Sources */,
