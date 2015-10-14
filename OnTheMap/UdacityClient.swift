@@ -14,8 +14,7 @@ class UdacityClient: NSObject {
     
     var sessionID: String?
     
-    // TODO: read sessionID
-    // TODO: use completionHandler
+    // TODO: differentiate between a failure to connect and an incorrect email and password.
     func login(email: String, password: String, completionHandler: (success: Bool, errorString: String) -> Void) {
         
         let request = NSMutableURLRequest(URL: NSURL(string: UdacityClient.BaseURL + "session")!)

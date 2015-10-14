@@ -8,26 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var edtEmail: UITextField!
-    @IBOutlet weak var edtPassword: UITextField!
+    @IBOutlet weak var tfEmail: UITextField!
+    @IBOutlet weak var tfPassword: UITextField!
     
-    // TODO: use and Alert View Controller to report login errors
     @IBAction func loginWithUdacity(sender: UIButton) {
-        UdacityClient.sharedInstance().login(edtEmail.text!, password: edtPassword.text!) { (success, errorString) in
+        UdacityClient.sharedInstance().login(tfEmail.text!, password: tfPassword.text!) { (success, errorString) in
             if success {
                 print(UdacityClient.sharedInstance().sessionID!)
             }
             else {
-                let ctrl = UIAlertController(title: "Login failure.", message: errorString, preferredStyle: .Alert)
-                let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (_) in
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
-                ctrl.addAction(action)
-                self.presentViewController(ctrl, animated: true, completion: nil)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.showAlert("Login failure.", message: errorString)
+                })
             }
         }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let ctrl = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (_) in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        ctrl.addAction(action)
+        self.presentViewController(ctrl, animated: true, completion: nil)
     }
     
     @IBAction func signUpWithUdacity(sender: UIButton) {
@@ -36,14 +41,14 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == tfEmail {
+            tfPassword.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return true
     }
 
 }

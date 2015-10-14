@@ -29,6 +29,9 @@
                                         <real key="value" value="11"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="g2E-cC-XYB"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="snf-hc-gqJ" customClass="TextFieldWithPadding" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -41,6 +44,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="9uq-Ca-xgw"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Px7-9m-Xjd">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -251,8 +257,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="edtEmail" destination="snf-hc-gqJ" id="WBY-6c-cnx"/>
-                        <outlet property="edtPassword" destination="U2R-NF-RUV" id="vrl-by-dQd"/>
+                        <outlet property="tfEmail" destination="snf-hc-gqJ" id="UXC-Ln-7Sg"/>
+                        <outlet property="tfPassword" destination="U2R-NF-RUV" id="09d-zE-9JU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
