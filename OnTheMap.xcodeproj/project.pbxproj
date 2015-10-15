@@ -63,9 +63,9 @@
 				6C5288681BCB05D4008B3470 /* Info.plist */,
 				6C5288651BCB05D4008B3470 /* LaunchScreen.storyboard */,
 				6C5288601BCB05D4008B3470 /* Main.storyboard */,
+				6C5288921BCB4667008B3470 /* Model */,
 				6C52888D1BCB1229008B3470 /* View */,
 				6C52888A1BCB11C5008B3470 /* ViewController */,
-				6C5288921BCB4667008B3470 /* Model */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";

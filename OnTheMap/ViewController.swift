@@ -16,7 +16,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginWithUdacity(sender: UIButton) {
         UdacityClient.sharedInstance().login(tfEmail.text!, password: tfPassword.text!) { (success, errorString) in
             if success {
-                print(UdacityClient.sharedInstance().sessionID!)
+                //print(UdacityClient.sharedInstance().sessionID!)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("map", sender: self)
+                }
             }
             else {
                 dispatch_async(dispatch_get_main_queue(), {
@@ -25,7 +28,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
     func showAlert(title: String, message: String) {
         let ctrl = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (_) in
