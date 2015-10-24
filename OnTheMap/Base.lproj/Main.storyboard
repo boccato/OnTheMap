@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="597" y="398"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -287,19 +287,60 @@
         <!--Map-->
         <scene sceneID="t9V-UB-Nxo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s6Y-Jl-hRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="o3D-Hp-yk2" sceneMemberID="viewController">
+                <viewController id="o3D-Hp-yk2" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uVZ-P7-OiO"/>
                         <viewControllerLayoutGuide type="bottom" id="1eq-Mn-4xo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="clo-CY-dY6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n81-rP-Vfi">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="o3D-Hp-yk2" id="PGd-XD-fWC"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n81-rP-Vfi" firstAttribute="top" secondItem="uVZ-P7-OiO" secondAttribute="bottom" id="SJb-kn-irp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n81-rP-Vfi" secondAttribute="trailing" id="XPF-ww-Cd6"/>
+                            <constraint firstItem="1eq-Mn-4xo" firstAttribute="top" secondItem="n81-rP-Vfi" secondAttribute="bottom" id="oVq-mh-Fnl"/>
+                            <constraint firstItem="n81-rP-Vfi" firstAttribute="leading" secondItem="clo-CY-dY6" secondAttribute="leadingMargin" id="yX7-CM-2Na"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="n81-rP-Vfi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="oVq-mh-Fnl"/>
+                                <exclude reference="SJb-kn-irp"/>
+                                <exclude reference="XPF-ww-Cd6"/>
+                                <exclude reference="yX7-CM-2Na"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="n81-rP-Vfi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="oVq-mh-Fnl"/>
+                                <include reference="SJb-kn-irp"/>
+                                <include reference="XPF-ww-Cd6"/>
+                                <include reference="yX7-CM-2Na"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="PmI-TM-Oej"/>
+                    <connections>
+                        <outlet property="mapView" destination="n81-rP-Vfi" id="fHx-ZX-rlM"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s6Y-Jl-hRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2395.5" y="98"/>
         </scene>
@@ -308,13 +349,16 @@
             <objects>
                 <tableViewController id="01H-9Z-Q0m" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pec-V4-Crb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="N14-ei-7Ed">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N14-ei-7Ed" id="7ZU-Bz-g9b">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>

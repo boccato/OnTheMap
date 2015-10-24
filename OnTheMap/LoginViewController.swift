@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
     func showAlert(title: String, message: String) {
         let ctrl = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (_) in
