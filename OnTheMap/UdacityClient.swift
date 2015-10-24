@@ -59,8 +59,6 @@ class UdacityClient: NSObject {
 
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             
-            //print(NSString(data: newData, encoding: NSUTF8StringEncoding))
-            
             do {
                 let result = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
                 // GUARD: Did we find a session id?
@@ -73,6 +71,31 @@ class UdacityClient: NSObject {
                 completionHandler(success: false, errorString: "Could not parse the data as JSON: '\(data)'")
             }
             
+        }
+        task.resume()
+    }
+    
+    func logout(completionHandler: (success: Bool, errorString: String) -> Void) {
+        let request = NSMutableURLRequest(URL: NSURL(string: UdacityClient.BaseURL + "session")!)
+        request.HTTPMethod = "DELETE"
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        if let cookies = sharedCookieStorage.cookies {
+            for cookie in cookies {
+                if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+            }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            guard error == nil else {
+                completionHandler(success: false, errorString: "There was an error with your request: \(error)")
+                return
+            }
+            self.sessionID = nil
+            completionHandler(success: true, errorString: "")
         }
         task.resume()
     }

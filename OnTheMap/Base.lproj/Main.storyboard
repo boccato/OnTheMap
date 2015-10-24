@@ -379,12 +379,24 @@
         <!--On The Map-->
         <scene sceneID="uHV-GH-VuS">
             <objects>
-                <tabBarController id="k41-bw-qhO" sceneMemberID="viewController">
+                <tabBarController id="k41-bw-qhO" customClass="RootViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="FgT-Z2-UAC">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="rhV-LI-UM5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="rhV-LI-UM5">
+                            <connections>
+                                <action selector="logout:" destination="k41-bw-qhO" id="wyS-Rr-KS5"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="1bC-SJ-aZF"/>
-                            <barButtonItem image="pin" id="P23-Zn-BBH"/>
+                            <barButtonItem systemItem="refresh" id="1bC-SJ-aZF">
+                                <connections>
+                                    <action selector="refresh:" destination="k41-bw-qhO" id="3VB-y4-k1L"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="pin" id="P23-Zn-BBH">
+                                <connections>
+                                    <action selector="pin:" destination="k41-bw-qhO" id="9kg-fu-6lT"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="IZV-qc-CdP">

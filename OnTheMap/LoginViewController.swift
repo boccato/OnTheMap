@@ -29,15 +29,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func showAlert(title: String, message: String) {
-        let ctrl = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (_) in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
-        ctrl.addAction(action)
-        self.presentViewController(ctrl, animated: true, completion: nil)
-    }
-    
     @IBAction func signUpWithUdacity(sender: UIButton) {
         if let url = NSURL(string: "https://www.udacity.com/account/auth#!/signup") {
             UIApplication.sharedApplication().openURL(url)
