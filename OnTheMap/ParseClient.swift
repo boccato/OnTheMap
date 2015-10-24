@@ -10,10 +10,12 @@ import Foundation
 
 class ParseClient: NSObject {
     
+    var students: [StudentInformation] = [StudentInformation]()
+    
     let BASE_URL = "https://api.parse.com/1/classes/StudentLocation"
     
-    func studentLocations(completionHandler: (locations: [[String: AnyObject]]?, error: String) -> Void) {
-        let params = ["limit": 100]
+    func load(completionHandler: (success: Bool, error: String) -> Void) {
+        let params = ["limit": 100, "order": "-updatedAt"]
         let urlString = BASE_URL + escapedParameters(params)
         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
@@ -35,13 +37,13 @@ class ParseClient: NSObject {
                 } else {
                     msg = "Your request returned an invalid response!"
                 }
-                completionHandler(locations: nil, error: msg)
+                completionHandler(success: false, error: msg)
                 return
             }
             
             // GUARD: Was there any data returned?
             guard let data = data else {
-                completionHandler(locations: nil, error: "No data was returned by the request!")
+                completionHandler(success: false, error: "No data was returned by the request!")
                 return
             }
             
@@ -51,9 +53,10 @@ class ParseClient: NSObject {
                 guard let locs = (result as? [String: AnyObject])?["results"] as? [[String: AnyObject]] else {
                     return
                 }
-                completionHandler(locations: locs, error: "")
+                self.students = StudentInformation.fromResults(locs)
+                completionHandler(success: true, error: "")
             } catch {
-                completionHandler(locations: nil, error: "Could not parse the data as JSON: '\(data)'")
+                completionHandler(success: false, error: "Could not parse the data as JSON: '\(data)'")
             }
         }
         task.resume()

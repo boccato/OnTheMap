@@ -10,6 +10,20 @@ import Foundation
 import UIKit
 
 class RootViewController: UITabBarController {
+
+    func load() {
+        ParseClient.sharedInstance().load() { (success, errorString) in
+            dispatch_async(dispatch_get_main_queue(), {
+                if success {
+                    NSNotificationCenter.defaultCenter().postNotificationName("StudentLocationsLoaded", object: nil)
+                }
+                else {
+                    self.showAlert("Error loading data.", message: errorString)
+                }
+            })
+        }
+    }
+    
     @IBAction func logout(sender: UIBarButtonItem) {
         UdacityClient.sharedInstance().logout() { (success, errorString) in
             if success {
@@ -29,5 +43,11 @@ class RootViewController: UITabBarController {
     }
     
     @IBAction func refresh(sender: UIBarButtonItem) {
+        load()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        load()
+        super.viewWillAppear(animated)
     }
 }
