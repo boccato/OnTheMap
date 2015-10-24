@@ -17,8 +17,8 @@
 		6C52888F1BCB1ED2008B3470 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */; settings = {ASSET_TAGS = (); }; };
 		6C5288911BCB4662008B3470 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5288901BCB4662008B3470 /* UdacityClient.swift */; settings = {ASSET_TAGS = (); }; };
 		6CA9DA431BDBCE190080E994 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA421BDBCE190080E994 /* StudentInformation.swift */; settings = {ASSET_TAGS = (); }; };
-		6CA9DA491BDBE8E20080E994 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA481BDBE8E20080E994 /* RootViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		6CA9DA4B1BDBF28A0080E994 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4A1BDBF28A0080E994 /* Util.swift */; settings = {ASSET_TAGS = (); }; };
+		6CA9DA4B1BDBF28A0080E994 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4A1BDBF28A0080E994 /* UIViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6CA9DA4E1BDBF67A0080E994 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4D1BDBF67A0080E994 /* RootViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,8 @@
 		6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		6C5288901BCB4662008B3470 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		6CA9DA421BDBCE190080E994 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
-		6CA9DA481BDBE8E20080E994 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = ../RootViewController.swift; sourceTree = "<group>"; };
-		6CA9DA4A1BDBF28A0080E994 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		6CA9DA4A1BDBF28A0080E994 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		6CA9DA4D1BDBF67A0080E994 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 				6C5288681BCB05D4008B3470 /* Info.plist */,
 				6C5288651BCB05D4008B3470 /* LaunchScreen.storyboard */,
 				6C5288601BCB05D4008B3470 /* Main.storyboard */,
-				6CA9DA4A1BDBF28A0080E994 /* Util.swift */,
+				6CA9DA4C1BDBF5FD0080E994 /* Util */,
 				6C5288921BCB4667008B3470 /* Model */,
 				6C52888D1BCB1229008B3470 /* View */,
 				6C52888A1BCB11C5008B3470 /* ViewController */,
@@ -86,7 +86,7 @@
 			children = (
 				6C52885E1BCB05D4008B3470 /* LoginViewController.swift */,
 				6C01F13E1BCF3B0D003A01A1 /* MapViewController.swift */,
-				6CA9DA481BDBE8E20080E994 /* RootViewController.swift */,
+				6CA9DA4D1BDBF67A0080E994 /* RootViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -115,6 +115,14 @@
 				6C5288901BCB4662008B3470 /* UdacityClient.swift */,
 			);
 			name = Clients;
+			sourceTree = "<group>";
+		};
+		6CA9DA4C1BDBF5FD0080E994 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6CA9DA4A1BDBF28A0080E994 /* UIViewController.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,14 +195,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CA9DA4E1BDBF67A0080E994 /* RootViewController.swift in Sources */,
 				6CA9DA431BDBCE190080E994 /* StudentInformation.swift in Sources */,
-				6CA9DA4B1BDBF28A0080E994 /* Util.swift in Sources */,
+				6CA9DA4B1BDBF28A0080E994 /* UIViewController.swift in Sources */,
 				6C01F1411BD701E7003A01A1 /* ParseClient.swift in Sources */,
 				6C5288911BCB4662008B3470 /* UdacityClient.swift in Sources */,
 				6C52885F1BCB05D4008B3470 /* LoginViewController.swift in Sources */,
 				6C52888F1BCB1ED2008B3470 /* TextFieldWithPadding.swift in Sources */,
 				6C01F13F1BCF3B0D003A01A1 /* MapViewController.swift in Sources */,
-				6CA9DA491BDBE8E20080E994 /* RootViewController.swift in Sources */,
 				6C52885D1BCB05D4008B3470 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
