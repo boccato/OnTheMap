@@ -19,12 +19,15 @@ class ListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("StudentCell", forIndexPath: indexPath)
         let student = students[indexPath.row]
+        cell.imageView?.image = UIImage(named: "pin")
         cell.textLabel?.text = "\(student.first) \(student.last)"
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // TODO: open safari
+        if let url = NSURL(string: students[indexPath.row].mediaURL) {
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
