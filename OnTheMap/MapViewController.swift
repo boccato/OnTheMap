@@ -14,7 +14,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    func loadStudentLocations(notification: NSNotification) {
+    func loadStudentLocations() {
         var annotations = [MKPointAnnotation]()
         
         for student in ParseClient.sharedInstance().students {
@@ -69,13 +69,4 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 app.openURL(NSURL(string: toOpen)!)
             }
         }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadStudentLocations:", name: "StudentLocationsLoaded", object: nil)
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "StudentLocationsLoaded", object: nil)
-    }
-}
+    }}

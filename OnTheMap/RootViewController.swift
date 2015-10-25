@@ -15,7 +15,14 @@ class RootViewController: UITabBarController {
         ParseClient.sharedInstance().load() { (success, errorString) in
             dispatch_async(dispatch_get_main_queue(), {
                 if success {
-                    NSNotificationCenter.defaultCenter().postNotificationName("StudentLocationsLoaded", object: nil)
+                    for ctrl in self.viewControllers! {
+                        if let ctrl = ctrl as? ListViewController {
+                            ctrl.loadStudentLocations()
+                        }
+                        if let ctrl = ctrl as? MapViewController {
+                            ctrl.loadStudentLocations()
+                        }
+                    }
                 }
                 else {
                     self.showAlert("Error loading data.", message: errorString)
@@ -46,8 +53,8 @@ class RootViewController: UITabBarController {
         load()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         load()
-        super.viewWillAppear(animated)
     }
 }
