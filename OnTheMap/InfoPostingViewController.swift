@@ -13,6 +13,7 @@ import UIKit
 
 class InfoPostingViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var btnFindOnMap: UIButton!
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var lblWhere: UILabel!
@@ -31,12 +32,15 @@ class InfoPostingViewController: UIViewController {
     @IBAction func findOnTheMap(sender: UIButton) {
         // Forward geocode txtLocation.
         let geo = CLGeocoder()
+        activityIndicator.startAnimating()
         geo.geocodeAddressString(txtLocation.text!, completionHandler: { (marks, error) in
             guard (error == nil) else {
                 self.showAlert("Error finding location", message: error!.description)
                 return
             }
             
+            self.activityIndicator.stopAnimating()
+
             self.coordinate = marks![0].location?.coordinate
             
             // hide stuff
