@@ -22,6 +22,8 @@ class InfoPostingViewController: UIViewController {
     @IBOutlet weak var txtLink: UITextView!
     @IBOutlet weak var txtLocation: UITextView!
     
+    var coordinate: CLLocationCoordinate2D!
+    
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -34,6 +36,8 @@ class InfoPostingViewController: UIViewController {
                 self.showAlert("Error finding location", message: error!.description)
                 return
             }
+            
+            self.coordinate = marks![0].location?.coordinate
             
             // hide stuff
             self.btnFindOnMap.hidden = true
@@ -48,13 +52,29 @@ class InfoPostingViewController: UIViewController {
             // put location on the map
             
             let annotation = MKPointAnnotation()
-            annotation.coordinate = (marks![0].location?.coordinate)!
+            annotation.coordinate = self.coordinate
             self.mapView.addAnnotation(annotation)
+            self.mapView.region = MKCoordinateRegionMake(self.coordinate, MKCoordinateSpanMake(0.1,0.1))
+            
         })
     }
     
     @IBAction func submit(sender: UIButton) {
-        
+        let std = StudentInformation(dictionary: [
+            "latitude":  self.coordinate.latitude,
+            "longitude": self.coordinate.longitude,
+            "firstName": UdacityClient.sharedInstance().first_name!,
+            "lastName": UdacityClient.sharedInstance().last_name!,
+            "mapString": txtLocation.text!,
+            "mediaURL": txtLink.text!
+        ])
+        ParseClient.sharedInstance().postStudentLocation(std) { (success, error)  in
+            guard success else {
+                self.showAlert("Error posting student information", message: error)
+                return
+            }
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 
     override func viewWillAppear(animated: Bool) {

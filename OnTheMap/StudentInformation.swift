@@ -13,6 +13,7 @@ struct StudentInformation {
     var long: Double
     var first: String
     var last: String
+    var mapString: String
     var mediaURL: String
     
     init(dictionary: [String : AnyObject]) {
@@ -20,6 +21,7 @@ struct StudentInformation {
         long = dictionary["longitude"] as! Double
         first = dictionary["firstName"] as! String
         last = dictionary["lastName"] as! String
+        mapString = dictionary["mapString"] as! String
         mediaURL = dictionary["mediaURL"] as! String
     }
     
@@ -32,5 +34,16 @@ struct StudentInformation {
         }
         
         return students
+    }
+    
+    func toDictionary() -> [String : AnyObject] {
+        var result = [String : AnyObject]()
+        result["latitude"] = lat
+        result["longitude"] = long
+        result["firstName"] = first
+        result["lastName"] = last
+        result["mapString"] = mapString
+        result["mediaURL"] = mediaURL
+        return result
     }
 }

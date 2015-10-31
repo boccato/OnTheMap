@@ -83,6 +83,48 @@ class ParseClient: NSObject {
         return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
     }
     
+    func postStudentLocation(std: StudentInformation, completionHandler: (success: Bool, error: String) -> Void) {
+        let request = NSMutableURLRequest(URL: NSURL(string: BASE_URL)!)
+        request.HTTPMethod = "POST"
+        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        var params = std.toDictionary()
+        params["uniqueKey"] = UdacityClient.sharedInstance().userID
+        
+        do {
+            request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: .PrettyPrinted)
+        }
+        
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            guard error == nil else {
+                completionHandler(success: false, error: "\(error)")
+                return
+            }
+            // GUARD: Was there any data returned?
+            guard let data = data else {
+                completionHandler(success: false, error: "No data was returned by the request!")
+                return
+            }
+            
+            do {
+                let result = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+                guard ((result as? [String: AnyObject])?["createdAt"] as? String) != nil else {
+                    completionHandler(success: true, error: "Could not create student information: '\(result)")
+                    return
+                }
+                completionHandler(success: true, error: "")
+            } catch {
+                completionHandler(success: false, error: "Could not parse the data as JSON: '\(data)'")
+            }
+//            completionHandler(success: true, error: "")
+            
+        }
+        task.resume()
+    }
+    
     class func sharedInstance() -> ParseClient {
         struct Singleton {
             static var sharedInstance = ParseClient()
