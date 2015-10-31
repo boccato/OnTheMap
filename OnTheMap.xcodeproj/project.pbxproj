@@ -17,6 +17,7 @@
 		6C52888F1BCB1ED2008B3470 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */; settings = {ASSET_TAGS = (); }; };
 		6C5288911BCB4662008B3470 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5288901BCB4662008B3470 /* UdacityClient.swift */; settings = {ASSET_TAGS = (); }; };
 		6C6928B71BDC2D9D000D0CA8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6928B61BDC2D9D000D0CA8 /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6C6928B91BDC6BC7000D0CA8 /* InfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6928B81BDC6BC7000D0CA8 /* InfoPostingViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		6CA9DA431BDBCE190080E994 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA421BDBCE190080E994 /* StudentInformation.swift */; settings = {ASSET_TAGS = (); }; };
 		6CA9DA4B1BDBF28A0080E994 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4A1BDBF28A0080E994 /* UIViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		6CA9DA4E1BDBF67A0080E994 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4D1BDBF67A0080E994 /* RootViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -35,6 +36,7 @@
 		6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		6C5288901BCB4662008B3470 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		6C6928B61BDC2D9D000D0CA8 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		6C6928B81BDC6BC7000D0CA8 /* InfoPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPostingViewController.swift; sourceTree = "<group>"; };
 		6CA9DA421BDBCE190080E994 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		6CA9DA4A1BDBF28A0080E994 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		6CA9DA4D1BDBF67A0080E994 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		6C52888A1BCB11C5008B3470 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6C6928B81BDC6BC7000D0CA8 /* InfoPostingViewController.swift */,
 				6C6928B61BDC2D9D000D0CA8 /* ListViewController.swift */,
 				6C52885E1BCB05D4008B3470 /* LoginViewController.swift */,
 				6C01F13E1BCF3B0D003A01A1 /* MapViewController.swift */,
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C6928B91BDC6BC7000D0CA8 /* InfoPostingViewController.swift in Sources */,
 				6CA9DA4E1BDBF67A0080E994 /* RootViewController.swift in Sources */,
 				6CA9DA431BDBCE190080E994 /* StudentInformation.swift in Sources */,
 				6CA9DA4B1BDBF28A0080E994 /* UIViewController.swift in Sources */,

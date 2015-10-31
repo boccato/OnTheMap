@@ -45,9 +45,6 @@ class RootViewController: UITabBarController {
             }
         }
     }
-
-    @IBAction func pin(sender: UIBarButtonItem) {
-    }
     
     @IBAction func refresh(sender: UIBarButtonItem) {
         load()
