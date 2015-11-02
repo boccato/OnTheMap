@@ -14,8 +14,8 @@ class UdacityClient: NSObject {
     
     var sessionID: String?
     var userID: String?
-    var first_name: String?
-    var last_name: String?
+    var firstName: String?
+    var lastName: String?
     
     func login(email: String, password: String, completionHandler: (success: Bool, errorString: String) -> Void) {
         
@@ -33,27 +33,10 @@ class UdacityClient: NSObject {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             
-            // GUARD: Was there an error?
             guard (error == nil) else {
-                completionHandler(success: false, errorString: "There was an error with your request: \(error)")
+                completionHandler(success: false, errorString: error!.localizedDescription)
                 return
             }
-
-            // GUARD: Did we get a successful 2XX response?
-            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                var msg: String = ""
-                if let response = response as? NSHTTPURLResponse {
-                    msg = "Your request returned an invalid response! Status code: \(response.statusCode)!"
-                } else if let response = response {
-                    msg = "Your request returned an invalid response! Response: \(response)!"
-                } else {
-                    msg = "Your request returned an invalid response!"
-                }
-                completionHandler(success: false, errorString: msg)
-                return
-            }
-
-            // GUARD: Was there any data returned?
             guard let data = data else {
                 completionHandler(success: false, errorString: "No data was returned by the request!")
                 return
@@ -63,19 +46,27 @@ class UdacityClient: NSObject {
             
             do {
                 let result = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
-                // GUARD: Did we find a session id?
-                guard let sid = ((result as? [String: AnyObject])?["session"] as? [String: AnyObject])?["id"] as? String else {
-                    return
+                
+                if let result = result as? [String:AnyObject] {
+                    if let error = result["error"] as? String {
+                        completionHandler(success: false, errorString: error)
+                    }
+                    else {
+                        if let account = result["account"] as? [String:AnyObject] {
+                            if let uid = account["key"] as? String {
+                                self.userID = uid
+                            }
+                        }
+                        if let session = result["session"] as? [String:AnyObject] {
+                            if let sid = session["id"] as? String {
+                                self.sessionID = sid
+                            }
+                        }
+                        self.getUserData(completionHandler)
+                    }
                 }
-                self.sessionID = sid
-                // GUARD: Did we find a user id?
-                guard let uid = ((result as? [String: AnyObject])?["account"] as? [String: AnyObject])?["key"] as? String else {
-                    return
-                }
-                self.userID = uid
-                self.getUserData(completionHandler)
             } catch {
-                completionHandler(success: false, errorString: "Could not parse the data as JSON: '\(data)'")
+                completionHandler(success: false, errorString: "Could not parse the data as JSON: '\(newData)'")
             }
             
         }
@@ -101,7 +92,10 @@ class UdacityClient: NSObject {
                 completionHandler(success: false, errorString: "There was an error with your request: \(error)")
                 return
             }
+            self.userID = nil
             self.sessionID = nil
+            self.firstName = nil
+            self.lastName = nil
             completionHandler(success: true, errorString: "")
         }
         task.resume()
@@ -111,12 +105,10 @@ class UdacityClient: NSObject {
         let request = NSMutableURLRequest(URL: NSURL(string: UdacityClient.BaseURL + "users/" + userID!)!)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
-            guard error == nil else {
-                completionHandler(success: false, errorString: "\(error)")
+            guard (error == nil) else {
+                completionHandler(success: false, errorString: error!.localizedDescription)
                 return
             }
-            
-            // GUARD: Was there any data returned?
             guard let data = data else {
                 completionHandler(success: false, errorString: "No data was returned by the request!")
                 return
@@ -126,17 +118,24 @@ class UdacityClient: NSObject {
             
             do {
                 let result = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments)
-                guard let first = ((result as? [String: AnyObject])?["user"] as? [String: AnyObject])?["first_name"] as? String else {
-                    return
+                
+                if let result = result as? [String:AnyObject] {
+                    if let error = result["error"] as? String {
+                        completionHandler(success: false, errorString: error)
+                    }
+                    else {
+                        if let user = result["user"] as? [String:AnyObject] {
+                            if let first_name = user["first_name"] as? String {
+                                self.firstName = first_name
+                            }
+                            if let last_name = user["last_name"] as? String {
+                                self.lastName = last_name
+                            }
+                        }
+                    }
                 }
-                self.first_name = first
-                guard let second = ((result as? [String: AnyObject])?["user"] as? [String: AnyObject])?["last_name"] as? String else {
-                    return
-                }
-                self.last_name = second
-                completionHandler(success: true, errorString: "")
             } catch {
-                completionHandler(success: false, errorString: "Could not parse the data as JSON: '\(data)'")
+                completionHandler(success: false, errorString: "Could not parse the data as JSON: '\(newData)'")
             }
         }
         task.resume()

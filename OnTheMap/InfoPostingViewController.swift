@@ -67,8 +67,8 @@ class InfoPostingViewController: UIViewController {
         let std = StudentInformation(dictionary: [
             "latitude":  self.coordinate.latitude,
             "longitude": self.coordinate.longitude,
-            "firstName": UdacityClient.sharedInstance().first_name!,
-            "lastName": UdacityClient.sharedInstance().last_name!,
+            "firstName": UdacityClient.sharedInstance().firstName!,
+            "lastName": UdacityClient.sharedInstance().lastName!,
             "mapString": txtLocation.text!,
             "mediaURL": txtLink.text!
         ])
