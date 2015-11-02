@@ -16,13 +16,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginWithUdacity(sender: UIButton) {
         UdacityClient.sharedInstance().login(tfEmail.text!, password: tfPassword.text!) { (success, errorString) in
             if success {
-                //print(UdacityClient.sharedInstance().sessionID!)
                 dispatch_async(dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("map", sender: self)
                 }
             }
             else {
                 dispatch_async(dispatch_get_main_queue(), {
+                    self.shake()
                     self.showAlert("Login failure.", message: errorString)
                 })
             }
