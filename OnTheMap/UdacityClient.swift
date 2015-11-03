@@ -132,6 +132,7 @@ class UdacityClient: NSObject {
                                 self.lastName = last_name
                             }
                         }
+                        completionHandler(success: true, errorString: "")
                     }
                 }
             } catch {
