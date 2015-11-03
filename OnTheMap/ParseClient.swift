@@ -10,11 +10,9 @@ import Foundation
 
 class ParseClient: NSObject {
     
-    var students: [StudentInformation] = [StudentInformation]()
-    
     let BASE_URL = "https://api.parse.com/1/classes/StudentLocation"
     
-    func load(completionHandler: (success: Bool, error: String) -> Void) {
+    func load(completionHandler: (students: [StudentInformation]?, error: String) -> Void) {
         let params = ["limit": 100, "order": "-updatedAt"]
         let urlString = BASE_URL + escapedParameters(params)
         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
@@ -37,13 +35,13 @@ class ParseClient: NSObject {
                 } else {
                     msg = "Your request returned an invalid response!"
                 }
-                completionHandler(success: false, error: msg)
+                completionHandler(students: nil, error: msg)
                 return
             }
             
             // GUARD: Was there any data returned?
             guard let data = data else {
-                completionHandler(success: false, error: "No data was returned by the request!")
+                completionHandler(students: nil, error: "No data was returned by the request!")
                 return
             }
             
@@ -53,10 +51,9 @@ class ParseClient: NSObject {
                 guard let locs = (result as? [String: AnyObject])?["results"] as? [[String: AnyObject]] else {
                     return
                 }
-                self.students = StudentInformation.fromResults(locs)
-                completionHandler(success: true, error: "")
+                completionHandler(students: StudentInformation.fromResults(locs), error: "")
             } catch {
-                completionHandler(success: false, error: "Could not parse the data as JSON: '\(data)'")
+                completionHandler(students: nil, error: "Could not parse the data as JSON: '\(data)'")
             }
         }
         task.resume()
@@ -118,9 +115,7 @@ class ParseClient: NSObject {
                 completionHandler(success: true, error: "")
             } catch {
                 completionHandler(success: false, error: "Could not parse the data as JSON: '\(data)'")
-            }
-//            completionHandler(success: true, error: "")
-            
+            }            
         }
         task.resume()
     }

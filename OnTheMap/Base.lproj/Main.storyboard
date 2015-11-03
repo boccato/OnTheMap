@@ -47,9 +47,6 @@
                                         <real key="value" value="11"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="28" y="289" width="344" height="22"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="g2E-cC-XYB"/>
                                 </connections>
@@ -65,9 +62,6 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="28" y="259" width="344" height="22"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="9uq-Ca-xgw"/>
                                 </connections>
@@ -89,9 +83,8 @@
                                         <exclude reference="jjW-tg-SaA"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
+                                <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                    <rect key="frame" x="28" y="319" width="344" height="44"/>
                                     <mask key="constraints">
                                         <include reference="jjW-tg-SaA"/>
                                     </mask>
@@ -106,9 +99,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="28" y="201.5" width="344" height="25.5"/>
-                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udacity" translatesAutoresizingMaskIntoConstraints="NO" id="4hi-gK-5rI">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -142,9 +132,6 @@
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Sign Up"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="297" y="379" width="75" height="36"/>
-                                </variation>
                                 <connections>
                                     <action selector="signUpWithUdacity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yui-38-7W7"/>
                                 </connections>
@@ -155,9 +142,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" misplaced="YES">
+                                <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                    <rect key="frame" x="79.5" y="385" width="213.5" height="23.5"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -394,7 +380,7 @@
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a URL here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Eze-GZ-EMH">
@@ -521,7 +507,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="T4d-rY-EcH">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="T4d-rY-EcH">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                 <animations/>
                             </activityIndicatorView>
@@ -573,6 +559,10 @@
                                 <exclude reference="T4d-rY-EcH"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="490-oJ-KLK"/>
+                                <exclude reference="GNj-bk-5Tz"/>
+                                <exclude reference="ch1-2m-f4W"/>
+                                <exclude reference="su3-fl-0dO"/>
                                 <exclude reference="8cH-k6-lkg"/>
                                 <exclude reference="RFJ-1c-BgI"/>
                                 <exclude reference="if4-ih-XWL"/>
@@ -582,18 +572,14 @@
                                 <exclude reference="DNP-Aj-CLr"/>
                                 <exclude reference="Lig-rp-Rrh"/>
                                 <exclude reference="fdw-mr-llc"/>
-                                <exclude reference="EAo-Aa-09B"/>
-                                <exclude reference="NFl-sj-c2f"/>
-                                <exclude reference="l4c-pF-dgL"/>
-                                <exclude reference="ch1-2m-f4W"/>
-                                <exclude reference="su3-fl-0dO"/>
                                 <exclude reference="CYS-YE-09J"/>
                                 <exclude reference="MRT-ae-bfd"/>
                                 <exclude reference="XiV-1A-afC"/>
                                 <exclude reference="jDJ-bF-vwx"/>
                                 <exclude reference="vth-NB-4ZX"/>
-                                <exclude reference="490-oJ-KLK"/>
-                                <exclude reference="GNj-bk-5Tz"/>
+                                <exclude reference="EAo-Aa-09B"/>
+                                <exclude reference="NFl-sj-c2f"/>
+                                <exclude reference="l4c-pF-dgL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -606,6 +592,10 @@
                                 <include reference="T4d-rY-EcH"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="490-oJ-KLK"/>
+                                <exclude reference="GNj-bk-5Tz"/>
+                                <include reference="ch1-2m-f4W"/>
+                                <include reference="su3-fl-0dO"/>
                                 <include reference="8cH-k6-lkg"/>
                                 <include reference="RFJ-1c-BgI"/>
                                 <include reference="if4-ih-XWL"/>
@@ -615,18 +605,14 @@
                                 <include reference="DNP-Aj-CLr"/>
                                 <include reference="Lig-rp-Rrh"/>
                                 <include reference="fdw-mr-llc"/>
-                                <include reference="EAo-Aa-09B"/>
-                                <include reference="NFl-sj-c2f"/>
-                                <include reference="l4c-pF-dgL"/>
-                                <include reference="ch1-2m-f4W"/>
-                                <include reference="su3-fl-0dO"/>
                                 <include reference="CYS-YE-09J"/>
                                 <include reference="MRT-ae-bfd"/>
                                 <exclude reference="XiV-1A-afC"/>
                                 <include reference="jDJ-bF-vwx"/>
                                 <include reference="vth-NB-4ZX"/>
-                                <include reference="490-oJ-KLK"/>
-                                <exclude reference="GNj-bk-5Tz"/>
+                                <include reference="EAo-Aa-09B"/>
+                                <include reference="NFl-sj-c2f"/>
+                                <include reference="l4c-pF-dgL"/>
                             </mask>
                         </variation>
                     </view>

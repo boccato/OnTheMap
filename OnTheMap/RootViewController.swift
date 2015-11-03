@@ -11,21 +11,18 @@ import UIKit
 
 class RootViewController: UITabBarController {
 
-    func load() {
-        ParseClient.sharedInstance().load() { (success, errorString) in
+    func load() {        
+        ParseClient.sharedInstance().load() { (students, error) in
             dispatch_async(dispatch_get_main_queue(), {
-                if success {
-                    for ctrl in self.viewControllers! {
-                        if let ctrl = ctrl as? ListViewController {
-                            ctrl.loadStudentLocations()
-                        }
-                        if let ctrl = ctrl as? MapViewController {
-                            ctrl.loadStudentLocations()
-                        }
-                    }
+                guard let students = students else {
+                    self.showAlert("Error loading data.", message: error)
+                    return
                 }
-                else {
-                    self.showAlert("Error loading data.", message: errorString)
+                self.appDelegate().students = students
+                for ctrl in self.viewControllers! {
+                    if let ctrl = ctrl as? MapViewController {
+                        ctrl.loadStudentLocations()
+                    }
                 }
             })
         }

@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C01F13F1BCF3B0D003A01A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01F13E1BCF3B0D003A01A1 /* MapViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		6C01F1411BD701E7003A01A1 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01F1401BD701E7003A01A1 /* ParseClient.swift */; settings = {ASSET_TAGS = (); }; };
+		6C01F13F1BCF3B0D003A01A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01F13E1BCF3B0D003A01A1 /* MapViewController.swift */; };
+		6C01F1411BD701E7003A01A1 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C01F1401BD701E7003A01A1 /* ParseClient.swift */; };
 		6C52885D1BCB05D4008B3470 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52885C1BCB05D4008B3470 /* AppDelegate.swift */; };
 		6C52885F1BCB05D4008B3470 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52885E1BCB05D4008B3470 /* LoginViewController.swift */; };
 		6C5288621BCB05D4008B3470 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5288601BCB05D4008B3470 /* Main.storyboard */; };
 		6C5288641BCB05D4008B3470 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C5288631BCB05D4008B3470 /* Assets.xcassets */; };
 		6C5288671BCB05D4008B3470 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5288651BCB05D4008B3470 /* LaunchScreen.storyboard */; };
-		6C52888F1BCB1ED2008B3470 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */; settings = {ASSET_TAGS = (); }; };
-		6C5288911BCB4662008B3470 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5288901BCB4662008B3470 /* UdacityClient.swift */; settings = {ASSET_TAGS = (); }; };
-		6C6928B71BDC2D9D000D0CA8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6928B61BDC2D9D000D0CA8 /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		6C6928B91BDC6BC7000D0CA8 /* InfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6928B81BDC6BC7000D0CA8 /* InfoPostingViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		6CA9DA431BDBCE190080E994 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA421BDBCE190080E994 /* StudentInformation.swift */; settings = {ASSET_TAGS = (); }; };
-		6CA9DA4B1BDBF28A0080E994 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4A1BDBF28A0080E994 /* UIViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		6CA9DA4E1BDBF67A0080E994 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4D1BDBF67A0080E994 /* RootViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6C52888F1BCB1ED2008B3470 /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C52888E1BCB1ED2008B3470 /* TextFieldWithPadding.swift */; };
+		6C5288911BCB4662008B3470 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5288901BCB4662008B3470 /* UdacityClient.swift */; };
+		6C6928B71BDC2D9D000D0CA8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6928B61BDC2D9D000D0CA8 /* ListViewController.swift */; };
+		6C6928B91BDC6BC7000D0CA8 /* InfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6928B81BDC6BC7000D0CA8 /* InfoPostingViewController.swift */; };
+		6CA9DA431BDBCE190080E994 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA421BDBCE190080E994 /* StudentInformation.swift */; };
+		6CA9DA4B1BDBF28A0080E994 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4A1BDBF28A0080E994 /* UIViewController.swift */; };
+		6CA9DA4E1BDBF67A0080E994 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9DA4D1BDBF67A0080E994 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,9 +77,9 @@
 				6C5288681BCB05D4008B3470 /* Info.plist */,
 				6C5288651BCB05D4008B3470 /* LaunchScreen.storyboard */,
 				6C5288601BCB05D4008B3470 /* Main.storyboard */,
-				6CA9DA421BDBCE190080E994 /* StudentInformation.swift */,
-				6CA9DA4C1BDBF5FD0080E994 /* Util */,
+				6C5288931BCB466F008B3470 /* Clients */,
 				6C5288921BCB4667008B3470 /* Model */,
+				6CA9DA4C1BDBF5FD0080E994 /* Util */,
 				6C52888D1BCB1229008B3470 /* View */,
 				6C52888A1BCB11C5008B3470 /* ViewController */,
 			);
@@ -109,7 +109,7 @@
 		6C5288921BCB4667008B3470 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6C5288931BCB466F008B3470 /* Clients */,
+				6CA9DA421BDBCE190080E994 /* StudentInformation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
