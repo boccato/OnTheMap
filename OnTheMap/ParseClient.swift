@@ -21,7 +21,8 @@ class ParseClient: NSObject {
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
-            if error != nil { // Handle error...
+            guard error == nil else {
+                completionHandler(students: nil, error: error!.localizedDescription)
                 return
             }
           
