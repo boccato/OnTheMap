@@ -88,12 +88,21 @@ class InfoPostingViewController: UIViewController {
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
-
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // Removes the navigation bar border.
         navBar!.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navBar!.shadowImage = UIImage()
     }
-    
 }
