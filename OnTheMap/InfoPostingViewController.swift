@@ -14,6 +14,7 @@ import UIKit
 class InfoPostingViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var btnBrowse: UIBarButtonItem!
     @IBOutlet weak var btnFindOnMap: UIButton!
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var lblWhere: UILabel!
@@ -24,6 +25,12 @@ class InfoPostingViewController: UIViewController {
     @IBOutlet weak var txtLocation: UITextView!
     
     var coordinate: CLLocationCoordinate2D!
+    
+    @IBAction func browseLink(sender: UIBarButtonItem) {
+        if let url = NSURL(string: txtLink.text!) {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -49,6 +56,7 @@ class InfoPostingViewController: UIViewController {
             self.txtLocation.hidden = true
 
             // show stuff
+            self.btnBrowse.enabled = true
             self.btnSubmit.hidden = false
             self.mapView.hidden = false
             self.txtLink.hidden = false

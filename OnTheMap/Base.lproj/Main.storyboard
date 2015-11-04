@@ -365,6 +365,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="xuE-26-oda">
+                                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Browse" id="B6E-C5-Jly">
+                                            <connections>
+                                                <action selector="browseLink:" destination="eXE-Na-7Uf" id="JCG-Hn-alY"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Xx7-xt-dPV">
                                             <connections>
                                                 <action selector="cancel:" destination="eXE-Na-7Uf" id="b4K-9x-sMn"/>
@@ -618,6 +623,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="T4d-rY-EcH" id="a0W-HF-8xv"/>
+                        <outlet property="btnBrowse" destination="B6E-C5-Jly" id="S8O-TV-F4b"/>
                         <outlet property="btnFindOnMap" destination="xF0-rc-l6A" id="HKO-9E-hvm"/>
                         <outlet property="btnSubmit" destination="0ca-RT-acN" id="UrP-cs-M4t"/>
                         <outlet property="lblWhere" destination="MFS-4N-d3m" id="mJ3-oU-hXa"/>
