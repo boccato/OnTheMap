@@ -98,7 +98,7 @@ class ParseClient: NSObject {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
             guard error == nil else {
-                completionHandler(success: false, error: "\(error)")
+                completionHandler(success: false, error: error!.localizedDescription)
                 return
             }
             // GUARD: Was there any data returned?
