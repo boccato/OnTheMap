@@ -82,7 +82,9 @@ class InfoPostingViewController: UIViewController {
         ])
         ParseClient.sharedInstance().postStudentLocation(std) { (success, error)  in
             guard success else {
-                self.showAlert("Error posting student information", message: error)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.showAlert("Error posting student information", message: error)
+                }
                 return
             }
             self.dismissViewControllerAnimated(true, completion: nil)
