@@ -17,7 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func loadStudentLocations() {
         var annotations = [MKPointAnnotation]()
         
-        for student in appDelegate().students {
+        for student in StudentInformation.students {
             // The lat and long are used to create a CLLocationCoordinates2D instance.
             let coordinate = CLLocationCoordinate2D(latitude: student.lat, longitude: student.long)
             

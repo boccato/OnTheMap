@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func appDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate
-    }
     func shake() {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.07

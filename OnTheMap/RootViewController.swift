@@ -18,7 +18,7 @@ class RootViewController: UITabBarController {
                     self.showAlert("Error loading data.", message: error)
                     return
                 }
-                self.appDelegate().students = students
+                StudentInformation.students = students
                 for ctrl in self.viewControllers! {
                     if let ctrl = ctrl as? MapViewController {
                         ctrl.loadStudentLocations()

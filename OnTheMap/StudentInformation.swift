@@ -9,6 +9,9 @@
 import Foundation
 
 struct StudentInformation {
+    
+    static var students: [StudentInformation] = [StudentInformation]()
+    
     var lat: Double
     var long: Double
     var first: String

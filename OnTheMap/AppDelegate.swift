@@ -10,8 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var students: [StudentInformation] = [StudentInformation]()
 
     var window: UIWindow?
 
