@@ -41,12 +41,12 @@ class InfoPostingViewController: UIViewController {
         let geo = CLGeocoder()
         activityIndicator.startAnimating()
         geo.geocodeAddressString(txtLocation.text!, completionHandler: { (marks, error) in
+            self.activityIndicator.stopAnimating()
+
             guard (error == nil) else {
                 self.showAlert("Error finding location", message: error!.description)
                 return
             }
-            
-            self.activityIndicator.stopAnimating()
 
             self.coordinate = marks![0].location?.coordinate
             
